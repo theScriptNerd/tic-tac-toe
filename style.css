@@ -47,10 +47,10 @@ header{
   color: #fff;
 }
 .x {
-  color: #ff0000;
+  color: #fff;
 }
 .o {
-  color: #0000ff;
+  color: #fff;
 }
 #winning-message {
   display: none;
