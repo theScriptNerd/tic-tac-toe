@@ -15,8 +15,12 @@
 }
 body{
   margin: 0;
+  height: 100vh;
   background-color: #2b2929;
   font-family: 'Borel-Regular';
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 header{
   font-size: 1.5em;
@@ -27,7 +31,6 @@ header{
 }
 .game-board {
   width: 100wv;
-  height: 80vh;
   display: grid;
   grid-template-columns: repeat(3, auto);
   padding: 10px;
