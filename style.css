@@ -1,6 +1,22 @@
+@font-face {
+  font-family: 'Borel-Regular';
+  src: url('./Borel/Borel-Regular.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+:root{
+  --cell-size: 100px;
+  --mark-size: calc(var(--cell-size) * .9);
+}
 body{
   margin: 0;
   background-color: #2b2929;
+  font-family: 'Borel-Regular';
 }
 header{
   font-size: 1.5em;
@@ -9,69 +25,93 @@ header{
   margin: 10px 0;
   color: #fff;
 }
-#game-board {
+.game-board {
+  width: 100wv;
+  height: 80vh;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(3, auto);
   padding: 10px;
-  border: 2px solid #ffffff;
   border-radius: 10px;
-  margin: 0 auto;
-  width: 400px;
-  height: 400px;
+  justify-content: center;
+  align-content: center;
 }
 .cell {
-  min-width: 100px;
-  min-height: 100px;
+  width: var(--cell-size);
+  height: var(--cell-size);
   border: 1px solid #fff;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 50px;
+  font-size: 3rem;
   cursor: pointer;
+  position: relative;
 }
 .cell:hover {
   background-color: #635d5d
 }
-.playerScore{
-  margin: 10px auto;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  gap: 30px;
+.cell.x::before,
+.cell.x::after{
+  content: '';
+  position: absolute;
+  width: calc(var(--mark-size) * .15);
+  height: var(--mark-size);
+  background-color: #fff;
 }
-#p1,#p2{
-  color: #fff;
+.cell.x::before{
+  transform: rotate(45deg);
 }
-.white{
-  color: #fff;
+.cell.x::after{
+  transform: rotate(-45deg);
 }
-.x {
-  color: #fff;
+.cell.o::before,
+.cell.o::after{
+  content: '';
+  position: absolute;
+  border-radius: 50%;
 }
-.o {
-  color: #fff;
+.cell.o::before{
+  width: var(--mark-size);
+  height: var(--mark-size);
+  background-color: #fff;
 }
-#winning-message {
+.cell.o::after{
+  width: calc(var(--mark-size) * .6);
+  height: calc(var(--mark-size) * .6);
+  background-color: #2b2929;
+}
+.cell.x,
+.cell.o{
+  cursor: not-allowed;
+}
+.winning-message {
   display: none;
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #ffffff;
-  padding: 20px;
-  border: 2px solid #000000;
-  border-radius: 10px;
-  text-align: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: green;
+  font-size: 3rem;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
-#winning-message button {
-  margin-top: 10px;
-  padding: 5px 10px;
-  border: none;
-  border-radius: 5px;
-  background-color: #000000;
-  color: #ffffff;
+button {
+  padding: 10px 10px;
+  border: 2px solid green;
+  border-radius: 10px;
+  background-color: green;
+  font-size: 1.35rem;
+  color: white;
   cursor: pointer;
+}
+button:hover {
+  background-color: rgb(53, 124, 53);
+  border-color: rgb(53, 124, 53);
+}
+.winning-message.show{
+  display: flex;
 }
 @media only screen and (max-width: 480px) {
   .board {
