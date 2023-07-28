@@ -46,6 +46,22 @@ header{
   cursor: pointer;
   position: relative;
 }
+.cell:first-child,
+.cell:nth-child(2),
+.cell:nth-child(3) {
+  border-top: 2px solid #fff;
+}
+.cell:nth-child(3n + 1){
+  border-left: 2px solid #fff;
+}
+.cell:nth-child(3n + 3){
+  border-right: 2px solid #fff;
+}
+.cell:last-child,
+.cell:nth-child(8),
+.cell:nth-child(7) {
+  border-bottom: 2px solid #fff;
+}
 .cell:hover {
   background-color: #635d5d
 }
@@ -112,6 +128,17 @@ button:hover {
 }
 .winning-message.show{
   display: flex;
+}
+.white{
+  color: white;
+}
+a{
+  color: chocolate;
+  font-size: 1.5rem;
+}
+footer{
+  text-align: center;
+  font-weight: 600;
 }
 @media only screen and (max-width: 480px) {
   .board {
