@@ -149,7 +149,7 @@ footer{
     height: 300px;
   }
 
-  .cell {
-    font-size: 3rem;
+  .cell:hover{
+    background-color: #2b2929;
   }
 }
