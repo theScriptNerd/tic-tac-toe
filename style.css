@@ -136,8 +136,8 @@ button:hover {
   color: white;
 }
 a{
-  color: chocolate;
-  font-size: 1.5rem;
+  color: lightgreen;
+  /*font-size: 1.5rem;*/
 }
 footer{
   text-align: center;
